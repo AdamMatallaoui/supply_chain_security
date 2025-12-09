@@ -1,18 +1,18 @@
 name: Generate SBOM Report with Syft
 
-On:
-workflow_dispatch:
-    push:
-      branches:
+on:
+  workflow_dispatch:     #added
+  push:
+    branches:
       - master
-    pull_request:
-      branches:
+  pull_request:
+    branches:
       - master
 
 jobs:
   generate-sbom:
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v3
@@ -29,4 +29,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: spdx-report
-        path: spdx.json
+        path: spdx.json       #modified
